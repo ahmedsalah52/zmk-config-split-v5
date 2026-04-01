@@ -20,7 +20,7 @@
         lower_layer {
             bindings = <
                 &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT    &kp CARET    &kp AMPS     &kp ASTRK    &kp LBKT
-                &kp GRAVE    &kp MINUS    &kp EQUAL    &kp LBRC     &kp RBRC     &kp LEFT     &kp RIGHT    &none        &none
+                &kp GRAVE    &kp MINUS    &kp EQUAL    &kp LBRC     &kp RBRC     &kp LEFT     &tog 1       &none        &none
                 &out OUT_BLE &kp UNDER    &kp PLUS     &kp LPAR     &kp RPAR     &kp HOME     &bt BT_SEL 0 &none        &none
                 &bt BT_CLR   &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7       &none        &none
                 &trans       &trans       &trans       &trans       &kp SPACE    &none        &trans       &kp DEL      &kp ENTER
