@@ -10,7 +10,7 @@
         base_layer {
             bindings = <
                 &kp A        &kp W        &kp E        &kp R        &kp T        &kp Y        &kp B        &kp I        &kp O
-                &kp C        &kp S        &kp D        &kp F        &kp G        &kp H        &mo 1        &none        &none
+                &kp C        &kp S        &kp D        &kp F        &kp G        &kp H        &tog 1       &none        &none
                 &kp E        &kp X        &kp C        &kp V        &kp B        &kp N        &kp F        &none        &none
                 &kp G        &kp N2       &kp N3       &kp N4       &kp N5       &kp N6       &kp H        &none        &none
                 &kp I        &kp LALT     &kp LCTRL    &mo 1        &kp SPACE    &none        &kp J        &kp BSPC     &kp ENTER
