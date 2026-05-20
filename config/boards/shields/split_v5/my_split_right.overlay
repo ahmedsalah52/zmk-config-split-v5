@@ -21,7 +21,7 @@
     /* ── REPLACE THESE COLUMN PINS with your actual wiring ── */
     col-gpios = <&pro_micro 1  (GPIO_ACTIVE_HIGH)>,
                 <&pro_micro 0  (GPIO_ACTIVE_HIGH)>,
-                <&pro_micro 14 (GPIO_ACTIVE_HIGH)>,
+                <&pro_micro 21 (GPIO_ACTIVE_HIGH)>,
                 <&pro_micro 19 (GPIO_ACTIVE_HIGH)>,
                 <&pro_micro 20 (GPIO_ACTIVE_HIGH)>,
                 <&pro_micro 9  (GPIO_ACTIVE_HIGH)>,
