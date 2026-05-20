@@ -17,11 +17,11 @@
                 /* Row 4 */ &kp LCTRL &kp LGUI  &kp LALT  &kp LC(Z) &kp BSPC  &kp SPACE &none    &kp ENTER &kp LC(BSPC)
 
                 /* ── RIGHT SIDE (44 keys, positions 39-82, auto-offset by BLE split) ─────── */
-                /* Row 0 */                    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC  &kp DEL
-                /* Row 1 */                    &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT  &kp HOME
-                /* Row 2 */                    &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp BSLH  &Enter
-                /* Row 3 */ &mo 1      &none   &kp N     &kp  N    &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp UP    &kp RSHFT     
-                /* Row 4 */ &LC(BSPC)  &ENTER  &kp none &kp SPACE &kp BSPC  &kp RCTRL &kp RGUI  &kp LEFT  &kp DOWN  &kp RIGHT 
+                /* Row 0 */                     &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC  &kp DEL
+                /* Row 1 */                     &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT  &kp HOME
+                /* Row 2 */                     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp BSLH  &Enter
+                /* Row 3 */ &mo 1        &none  &kp N     &kp  N    &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp UP    &kp RSHFT     
+                /* Row 4 */ &kp LC(BSPC) &ENTER &kp none &kp SPACE &kp BSPC  &kp RCTRL &kp RGUI  &kp LEFT  &kp DOWN  &kp RIGHT 
             >;
         };
 
