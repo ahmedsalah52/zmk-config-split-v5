@@ -1,0 +1,80 @@
+/*
+ * split_v5.dtsi — shared device-tree include for both halves
+ *
+ * Pattern mirrors the Caldera keyboard:
+ *   - One unified matrix_transform covering all 83 keys.
+ *   - Left overlay  adds its row-gpios + col-gpios directly.
+ *   - Right overlay adds its row-gpios + col-gpios AND sets
+ *     col-offset = <9> on &default_transform, which shifts the
+ *     right side's local column scan (0-9) into global columns (9-18).
+ *
+ * Key position map:
+ *
+ *   Positions  0-38 : left side  (global cols 0-8)
+ *   Positions 39-82 : right side (global cols 9-18, right local col + 9)
+ *
+ *   Left layout (39 keys):
+ *     Row 0 (pos  0- 6):  ESC   1     2     3     4     5     6
+ *     Row 1 (pos  7-13):  TAB   Q     W     E     R     T     ---
+ *     Row 2 (pos 14-20):  CAPS  A     S     D     F     G     ---
+ *     Row 3 (pos 21-29):  LSHFT Z     X     C     V     B     ---   MO1   MO1
+ *     Row 4 (pos 30-38):  LCTRL LGUI  LALT  LC(Z) BSPC  SPC   ---   ENT   LC(BSPC)
+ *
+ *   Right layout (44 keys, local cols shown):
+ *     Row 0 (pos 39-46):  [lc2] 7     8     9     0     -     =     BSPC  DEL
+ *     Row 1 (pos 47-54):  [lc2] Y     U     I     O     P     [     ]     HOME
+ *     Row 2 (pos 55-62):  [lc2] H     J     K     L     ;     '     BSLS  ENT
+ *     Row 3 (pos 63-72):  MO1   ---   ---   M     ,     .     /     UP    RSFT  ---
+ *     Row 4 (pos 73-82):  LC(BSPC) ENT --- SPC   BSPC  RCTRL RGUI  LEFT  DOWN  RIGHT
+ *
+ *   [lc2] = local col 2, skipped in rows 0-2 because those physical
+ *           positions are not wired on the right PCB.
+ *
+ *   Verification trace — right "I" key:
+ *     physical (row=1, col=4)  →  col-offset adds 9  →  global (row=1, col=13)
+ *     transform finds RC(1,13) at map index 49  →  keymap[49] = &kp I  ✓
+ */
+
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix_transform = &default_transform;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row";
+        /* row-gpios and col-gpios are added by each half's overlay */
+    };
+
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        rows = <5>;
+        columns = <19>;  /* 9 left cols (0-8) + 10 right cols (9-18) */
+
+        map = <
+            /* ── Left side: positions 0-38 ── */
+            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6)
+            RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5) RC(1,6)
+            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(2,6)
+            RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(3,6) RC(3,7) RC(3,8)
+            RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5) RC(4,6) RC(4,7) RC(4,8)
+            /* ── Right side: positions 39-82 ──
+             *  With col-offset=9 in the right overlay:
+             *    right local col 0 → global col  9  (rows 3-4 only)
+             *    right local col 1 → global col 10  (rows 3-4 only)
+             *    right local col 2 → global col 11  (all rows)
+             *    ...
+             *    right local col 9 → global col 18  (all rows)
+             */
+                              RC(0,11) RC(0,12) RC(0,13) RC(0,14) RC(0,15) RC(0,16) RC(0,17) RC(0,18)
+                              RC(1,11) RC(1,12) RC(1,13) RC(1,14) RC(1,15) RC(1,16) RC(1,17) RC(1,18)
+                              RC(2,11) RC(2,12) RC(2,13) RC(2,14) RC(2,15) RC(2,16) RC(2,17) RC(2,18)
+            RC(3,9)  RC(3,10) RC(3,11) RC(3,12) RC(3,13) RC(3,14) RC(3,15) RC(3,16) RC(3,17) RC(3,18)
+            RC(4,9)  RC(4,10) RC(4,11) RC(4,12) RC(4,13) RC(4,14) RC(4,15) RC(4,16) RC(4,17) RC(4,18)
+        >;
+    };
+};
