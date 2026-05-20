@@ -1,6 +1,13 @@
 if SHIELD_MY_SPLIT_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "my_split_left"
+    default "My Split Left"
 
-endif 
+endif
+
+if SHIELD_MY_SPLIT_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "My Split Right"
+
+endif
