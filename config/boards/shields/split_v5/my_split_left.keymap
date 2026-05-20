@@ -13,7 +13,7 @@
                 /* Row 0 */ &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6
                 /* Row 1 */ &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T     &kp N
                 /* Row 2 */ &kp CAPS  &kp A     &kp S     &kp D     &kp F     &kp G     &kp N
-                /* Row 3 */ &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N    &kp N     &mo 1
+                /* Row 3 */ &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N    &mo 1     &mo 1
                 /* Row 4 */ &kp LCTRL &kp LGUI  &kp LALT  &kp LC(Z) &kp BSPC  &kp SPACE &none    &kp ENTER &kp LC(BSPC)
 
                 /* ── RIGHT SIDE (44 keys, positions 39-82, auto-offset by BLE split) ─────── */
