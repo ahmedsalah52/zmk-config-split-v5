@@ -29,14 +29,14 @@
             bindings = <
                 /* ── LEFT SIDE (39 keys, positions 0-38) ─────────────────────────────────── */
                 /* Row 0 */ &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6
-                /* Row 1 */ &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T     &kp N
-                /* Row 2 */ &kp CAPS  &kp A     &kp S     &kp D     &kp F     &kp G     &kp N
-                /* Row 3 */ &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N    &mo 1     &mo 1
-                /* Row 4 */ &kp LCTRL &kp LGUI  &kp LALT  &kp LC(Z) &kp BSPC  &kp SPACE &none    &kp ENTER &kp LC(BSPC)
+                /* Row 1 */ &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T     &kp C_VOLUME_UP
+                /* Row 2 */ &kp CAPS  &kp A     &kp S     &kp D     &kp F     &kp G     &kp C_VOLUME_DOWN
+                /* Row 3 */ &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &kp C_VOLUME_MUTE    &mo 1     &mo 1
+                /* Row 4 */ &kp LCTRL &kp LGUI  &kp LALT  &kp LC(Z) &kp BSPC  &kp SPACE &none                &kp ENTER &kp LC(BSPC)
 
                 /* ── RIGHT SIDE (44 keys, positions 39-82, auto-offset by BLE split) ─────── */
                 /* Row 0 */                        &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC  &kp DEL
-                /* Row 1 */                        &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT  &kp HOME
+                /* Row 1 */                        &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT  &kp GRAVE
                 /* Row 2 */                        &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp BSLH  &kp ENTER
                 /* Row 3 */ &mo 1        &type_text &kp N     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp UP    &kp RSHFT
                 /* Row 4 */ &kp LC(BSPC) &kp ENTER &none    &kp SPACE &kp BSPC   &mo 2    &kp RGUI  &kp LEFT  &kp DOWN  &kp RIGHT
@@ -47,8 +47,8 @@
             bindings = <
                 /* ── LEFT SIDE ───────────────────────────────────────────────────────────── */
                 /* Row 0 */ &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none &none
-                /* Row 1 */ &none      &none        &none        &none        &none        &none &none
-                /* Row 2 */ &none      &none        &none        &none        &none        &none &none
+                /* Row 1 */ &none      &none        &none        &none        &none        &none &kp C_BRIGHTNESS_DEC
+                /* Row 2 */ &none      &none        &none        &none        &none        &none &kp C_BRIGHTNESS_INC
                 /* Row 3 */ &none      &none        &none        &none        &none        &none &none &none &none
                 /* Row 4 */ &none      &none        &none        &none        &none        &none &none &none &none
 
@@ -71,7 +71,7 @@
                 /* Row 4 */ &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
 
                 /* ── RIGHT SIDE ─────────────────────────────────────────────────────────── */
-                /* Row 0 */                        &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12   &trans    &trans
+                /* Row 0 */                        &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12   &trans    &kp LG(L)
                 /* Row 1 */                        &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
                 /* Row 2 */                        &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
                 /* Row 3 */ &trans       &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
