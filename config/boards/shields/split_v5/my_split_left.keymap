@@ -11,6 +11,22 @@
 #include <behaviors/oskey.dtsi>
 
 / {
+    behaviors {
+        /* On macOS the left Command and left Option keys are swapped relative to
+         * their physical labels; on Windows/Linux they keep their normal meaning.
+         *           Win        Mac        Lin   */
+        gui_alt: gui_alt {            /* the "Command" position */
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI>, <&kp LALT>, <&kp LGUI>;
+        };
+        alt_gui: alt_gui {            /* the "Option" position */
+            compatible = "zmk,behavior-os-key";
+            #binding-cells = <0>;
+            bindings = <&kp LALT>, <&kp LGUI>, <&kp LALT>;
+        };
+    };
+
     macros {
         /* Each macro selects a Bluetooth profile AND sets the matching OS in a
          * single keypress, so choosing a device also sets its OS automatically.
@@ -63,7 +79,7 @@
                 /* Row 1 */ &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T     &kp C_VOL_UP
                 /* Row 2 */ &kp CAPS  &kp A     &kp S     &kp D     &kp F     &kp G     &kp C_VOL_DN
                 /* Row 3 */ &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &kp C_MUTE   &mo 1     &mo 1
-                /* Row 4 */ &kp LCTRL &kp LGUI  &kp LALT  &kp LC(Z) &kp BSPC  &kp SPACE &none        &kp ENTER &kp LC(BSPC)
+                /* Row 4 */ &kp LCTRL &gui_alt  &alt_gui  &kp LC(Z) &kp BSPC  &kp SPACE &none        &kp ENTER &kp LC(BSPC)
 
                 /* ── RIGHT SIDE (44 keys, positions 39-82, auto-offset by BLE split) ─────── */
                 /* Row 0 */                        &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC  &kp DEL
